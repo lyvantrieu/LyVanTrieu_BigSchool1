@@ -24,6 +24,7 @@ namespace LyVanTrieu_BigSchool.ViewModels
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
+
     }
 
 }

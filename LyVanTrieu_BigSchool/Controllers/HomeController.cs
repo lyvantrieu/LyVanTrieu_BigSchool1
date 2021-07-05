@@ -22,7 +22,12 @@ namespace LyVanTrieu_BigSchool.Controllers
                 .Include("Lecturer")
                 .Include("Category")
                 .Where(c => c.Datetime > DateTime.Now);
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()
