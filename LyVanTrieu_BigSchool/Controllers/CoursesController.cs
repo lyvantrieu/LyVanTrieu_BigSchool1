@@ -26,7 +26,7 @@ namespace LyVanTrieu_BigSchool.Controllers
                 Categories = _dbContext.Categories.ToList(),
                 Heading = "Add Course"
             };
-            return View(viewModel);
+            return View("CourseForm",viewModel);
          
         }
 
@@ -38,7 +38,7 @@ namespace LyVanTrieu_BigSchool.Controllers
             if (!ModelState.IsValid)
             {
                 viewModel.Categories = _dbContext.Categories.ToList();
-                return View("Create", viewModel);
+                return View("CourseForm", viewModel);
             }
             var course = new Coures
             {
@@ -103,7 +103,7 @@ namespace LyVanTrieu_BigSchool.Controllers
                 Id=course.Id
             };
 
-            return View("Create", viewModel);
+            return View("CourseForm", viewModel);
         }
         [Authorize]
         [HttpPost]
@@ -113,7 +113,7 @@ namespace LyVanTrieu_BigSchool.Controllers
             if (!ModelState.IsValid)
             {
                 viewModel.Categories = _dbContext.Categories.ToList();
-                return View("Create", viewModel);
+                return View("CourseForm", viewModel);
             }
             var userId = User.Identity.GetUserId();
             var course = _dbContext.Courses.Single(c => c.Id == viewModel.Id && c.LecturerId == userId);
