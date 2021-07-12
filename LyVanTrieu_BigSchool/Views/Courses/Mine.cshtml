@@ -50,13 +50,13 @@
                             label: '<i class="fa fa-times"></i> Cancel'
                         },
                         confirm: {
-                            label: '<i class="fa fa-chek"></i> Confirm'
+                            label: '<i class="fa fa-check"></i> Confirm'
                         }
                     },
                     callback: function (result) {
                         if (result) {
                             $.ajax({
-                                url: "/api/courses" + link.attr("data-course-id"),
+                                url: "/api/courses/" + link.attr("data-course-id"),
                                 method: "DELETE"
                             })
                                 .done(function () {
